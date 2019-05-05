@@ -16,7 +16,7 @@
             @foreach($urls as $url)
                 <tr>
                     <td>{{$url->url}}</td>
-                    <td><a class="black-linker" href="{{ route('url.search', ['url' => $url->shorty]) }}">{{$url->shorty}}</a></td>
+                    <td><a class="black-linker" @if($url->shorty !== "NOT_VALID_URL") href="{{ route('url.search', ['url' => $url->shorty]) }}" @endif>{{$url->shorty}}</a></td>
                 </tr>
             @endforeach
 

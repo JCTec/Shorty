@@ -59,6 +59,8 @@
             </tbody>
         </table>
 
+        {{ $urls->links() }}
+
     </main>
 
 @endsection

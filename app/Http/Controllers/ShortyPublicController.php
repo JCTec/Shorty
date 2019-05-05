@@ -16,6 +16,10 @@ class ShortyPublicController extends Controller
 
             $newURL = $this->shortified($url);
 
+            if($newURL->shorty == "NOT_VALID_URL"){
+                return response()->json(['error' => 'URL no valido.', 'codigo' => 500],500);
+            }
+
             return response()->json(['Status' => 'URL generado exitosamente.', 'codigo' => $newURL->shorty, 'url' => route('url.search', ['url' => $newURL->shorty])],200);
 
         }else{
@@ -36,8 +40,12 @@ class ShortyPublicController extends Controller
             foreach ($urls as $url){
                 $obj = $this->shortified($url);
 
-                $toReturn[$url]["Codigo"] = $obj->shorty;
-                $toReturn[$url]["url"] = route('url.search', ['url' => $obj->shorty]);
+                if($obj->shorty != "NOT_VALID_URL"){
+                    $toReturn[$url]["Codigo"] = $obj->shorty;
+                    $toReturn[$url]["url"] = route('url.search', ['url' => $obj->shorty]);
+                }else{
+                    $toReturn[$url]["Error"] = $obj->shorty;
+                }
             }
 
 
@@ -51,6 +59,15 @@ class ShortyPublicController extends Controller
     }
 
     private function shortified($url){
+
+        if (filter_var($url, FILTER_VALIDATE_URL) === FALSE) {
+            $newURL = new URL();
+
+            $newURL->url = $url;
+            $newURL->shorty = "NOT_VALID_URL";
+
+            return $newURL;
+        }
 
         $assure = false;
 

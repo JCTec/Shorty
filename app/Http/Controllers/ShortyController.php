@@ -15,7 +15,7 @@ class ShortyController extends Controller
 
     function index(){
 
-        $urls = URL::all();
+        $urls = URL::select(['id', 'url', 'shorty'])->paginate(15);
 
         return view('maker')->with(['urls' => $urls]);
     }
@@ -99,6 +99,15 @@ class ShortyController extends Controller
     }
 
     private function shortified($url){
+
+        if (filter_var($url, FILTER_VALIDATE_URL) === FALSE) {
+            $newURL = new URL();
+
+            $newURL->url = $url;
+            $newURL->shorty = "NOT_VALID_URL";
+
+            return $newURL;
+        }
 
         $assure = false;
 
