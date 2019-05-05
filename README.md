@@ -1,13 +1,21 @@
+# Shorty
 
+## Descripción: 
+Este es un proyecto prueba. Consta de una acortadora de URLs.
 
-- Clone your project
-- Go to the folder application using cd command on your cmd or terminal
-- Run composer install on your cmd or terminal
-- Copy .env.example file to .env on the root folder. You can type copy .env.example .env if using command prompt Windows or cp .env.example .env if using terminal, Ubuntu
-- Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration. 
-- By default, the username is root and you can leave the password field empty. (This is for Xampp) 
-- By default, the username is root and password is also root. (This is for Lamp)
-- Run php artisan key:generate
-- Run php artisan migrate
-- Run php artisan serve
-- Go to localhost:8000
+![Alt text](Readme_img/rutas.png "Rutas")
+
+## Instalacíon:
+- Clona tu proyecto
+- Vaya a la aplicación de la carpeta usando el comando cd en su cmd o terminal
+- Ejecutar la instalación del compositor en su cmd o terminal
+- Copie el archivo .env.example a .env en la carpeta raíz. Puede escribir copy .env.example .env si usa el símbolo del sistema de Windows o cp .env.example .env si usa la terminal, Ubuntu
+- Abra su archivo .env y cambie el nombre de la base de datos (DB_DATABASE) a lo que tenga, los campos de nombre de usuario (DB_USERNAME) y contraseña (DB_PASSWORD) corresponden a su configuración.
+- Por defecto, el nombre de usuario es root y puede dejar el campo de contraseña vacío. (Esto es para Xampp)
+- Por defecto, el nombre de usuario es root y la contraseña también es root. (Esto es para Lamp)
+- Ejecutar php clave artesanal: generar
+- Ejecutar php artesano migrar.
+- Ejecutar php artisan serve.
+- Ir a localhost: 8000
+
+Mas Información: https://laravel.com/docs/5.8
