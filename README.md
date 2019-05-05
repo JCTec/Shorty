@@ -5,6 +5,29 @@ Este es un proyecto prueba. Consta de una acortadora de URLs.
 
 ![Alt text](Readme_img/rutas.png "Rutas")
 
+## Tabla de Contenidos:
+
+- url.index GET Route: '/' (ShortyController@index)
+Esta ruta recibe pagina ('page') como parametro y despliega la pagina principal con la lista de urls.
+
+- url.maker POST Route: '/maker' (ShortyController@maker)
+Ruta para generar un url corto.
+
+- url.bulker POST Route: '/bulker' (ShortyController@bulker)
+Ruta para generar URLs cortos por batch.
+
+- url.download GET Route: '/download' (ShortyController@download)
+Ruta descargar el archivo recientemente generado.
+
+- url.search GET Route: '/{url}' (ShortyController@search)
+Ruta que redirecciona al url deseado.
+
+- url.create GET Route: '/api/make?url=URL' ('ShortyPublicController@create')
+Ruta de la api para generar un url corto.
+
+- url.bulk POST Route: '/api/bulk' [urls_array[0], urls_array[1]...] ('ShortyPublicController@create')
+Ruta de la api para generar un url por batch por medio de urls_array.
+
 ## Instalacíon:
 - Clona tu proyecto
 - Vaya a la aplicación de la carpeta usando el comando cd en su cmd o terminal
